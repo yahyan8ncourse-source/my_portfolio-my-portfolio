@@ -1,4 +1,5 @@
 (function () {
+  const WHATSAPP_NUMBER = "213XXXXXXXXX";
   const root = document.documentElement;
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
@@ -6,9 +7,14 @@
   const saved = localStorage.getItem("mya-lang");
   const startLang = saved === "en" || saved === "fr" ? saved : "fr";
   setLang(startLang);
+  wireWhatsApp(startLang);
 
   document.querySelectorAll("[data-set-lang]").forEach((btn) => {
-    btn.addEventListener("click", () => setLang(btn.getAttribute("data-set-lang")));
+    btn.addEventListener("click", () => {
+      const lang = btn.getAttribute("data-set-lang");
+      setLang(lang);
+      wireWhatsApp(lang);
+    });
   });
 
   const menuBtn = document.querySelector(".menu-btn");
@@ -40,21 +46,18 @@
     });
   });
 
-  const form = document.getElementById("contact-form");
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const name = String(data.get("name") || "").trim();
-      const org = String(data.get("org") || "").trim();
-      const message = String(data.get("message") || "").trim();
-      const subject = encodeURIComponent(
-        org ? `Contact portfolio — ${org}` : "Contact portfolio — Mahdi Yahia Abderrahmane"
-      );
-      const body = encodeURIComponent(
-        `${message}\n\n— ${name}${org ? " · " + org : ""}`
-      );
-      window.location.href = `mailto:abdouyahya1414@gmail.com?subject=${subject}&body=${body}`;
+  function wireWhatsApp(lang) {
+    const digits = String(WHATSAPP_NUMBER || "").replace(/\D/g, "");
+    if (digits.length < 10) return;
+    const text =
+      lang === "en"
+        ? "Hello Mahdi, I am contacting you from your portfolio."
+        : "Bonjour Mahdi, je vous contacte depuis votre portfolio.";
+    const href = `https://wa.me/${digits}?text=${encodeURIComponent(text)}`;
+    document.querySelectorAll("[data-whatsapp]").forEach((link) => {
+      link.setAttribute("href", href);
+      link.setAttribute("target", "_blank");
+      link.setAttribute("rel", "noopener");
     });
   }
 
