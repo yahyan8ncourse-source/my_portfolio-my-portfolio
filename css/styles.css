@@ -423,8 +423,31 @@ h2 {
   gap: 48px;
 }
 
-.about-copy {
-  max-width: 720px;
+.course-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.course {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 22px 22px 20px;
+  background: var(--bg-2);
+}
+
+.course h3 {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 500;
+  margin: 14px 0 8px;
+}
+
+.course p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
 }
 
 .about-copy p {
@@ -877,6 +900,7 @@ textarea {
     justify-content: center;
   }
 
+  .course-grid,
   .split,
   .venture-grid,
   .work-grid,
