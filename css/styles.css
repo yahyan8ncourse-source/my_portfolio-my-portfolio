@@ -271,11 +271,8 @@ html[lang="en"] strong.t-en {
   background: var(--gold);
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
-  gap: 48px;
-  align-items: end;
+.hero-main {
+  max-width: 820px;
 }
 
 .hero h1 {
@@ -303,7 +300,25 @@ html[lang="en"] strong.t-en {
   font-size: 18px;
   color: var(--muted);
   max-width: 640px;
+  margin: 0 0 18px;
+}
+
+.hero-count {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
   margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+.hero-count strong {
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 6vw, 58px);
+  font-weight: 500;
+  color: var(--gold-2);
+  line-height: 1;
 }
 
 .hero-cta {
@@ -408,8 +423,12 @@ h2 {
   gap: 48px;
 }
 
-.muted {
-  color: var(--muted);
+.about-copy {
+  max-width: 720px;
+}
+
+.about-copy p {
+  margin: 0 0 16px;
 }
 
 .about-points {
@@ -858,20 +877,14 @@ textarea {
     justify-content: center;
   }
 
-  .hero-grid,
   .split,
   .venture-grid,
   .work-grid,
   .skill-groups,
   .contact-box,
-  .stats,
   .lang-grid,
   .soft-grid {
     grid-template-columns: 1fr;
-  }
-
-  .stats {
-    grid-template-columns: 1fr 1fr;
   }
 
   .hero {
