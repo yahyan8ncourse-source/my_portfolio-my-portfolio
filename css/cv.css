@@ -1,0 +1,201 @@
+:root {
+  --ink: #16181d;
+  --muted: #5c6158;
+  --gold: #9a7a32;
+  --line: #d9d1c3;
+  --paper: #fbf7f0;
+  --serif: "Cormorant Garamond", "Times New Roman", serif;
+  --sans: "Outfit", "Segoe UI", sans-serif;
+}
+
+body.cv-web {
+  margin: 0;
+  background: #0e1014;
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+.cv-web .toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 20px;
+  background: rgba(14, 16, 20, 0.92);
+  color: #f3eee4;
+  border-bottom: 1px solid rgba(196, 163, 90, 0.25);
+}
+
+.cv-web .toolbar a,
+.cv-web .toolbar button {
+  color: inherit;
+  background: transparent;
+  border: 1px solid rgba(243, 238, 228, 0.2);
+  border-radius: 999px;
+  padding: 8px 14px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.cv-sheet {
+  width: min(900px, calc(100% - 32px));
+  margin: 28px auto 64px;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.cv {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 1100px;
+}
+
+.cv-side {
+  background: #171c16;
+  color: #f3eee4;
+  padding: 36px 26px;
+}
+
+.cv-side h2 {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d4b46a;
+  margin: 28px 0 12px;
+  font-weight: 500;
+}
+
+.cv-side h2:first-child {
+  margin-top: 0;
+}
+
+.mono {
+  font-family: var(--serif);
+  font-size: 34px;
+  line-height: 0.95;
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+
+.cv-side p,
+.cv-side li {
+  color: #c9c2b4;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.cv-side ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cv-side li {
+  margin: 0 0 7px;
+}
+
+.cv-main {
+  padding: 36px 34px 40px;
+}
+
+.role {
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+.cv-main h1 {
+  font-family: var(--serif);
+  font-size: 42px;
+  line-height: 0.95;
+  margin: 0 0 14px;
+  font-weight: 500;
+}
+
+.lead {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.cv-main h2 {
+  margin: 22px 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 6px;
+}
+
+.job {
+  margin-bottom: 14px;
+}
+
+.job h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.job .meta {
+  color: var(--gold);
+  font-size: 12px;
+  margin: 2px 0 6px;
+}
+
+.job p,
+.job li {
+  margin: 0;
+  color: #3d403c;
+  font-size: 14px;
+}
+
+.job ul {
+  margin: 6px 0 0;
+  padding-left: 16px;
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+}
+
+.ar {
+  font-family: "IBM Plex Sans Arabic", var(--sans);
+  color: #c9c2b4;
+  margin: 0 0 18px;
+}
+
+@media print {
+  .cv-web .toolbar {
+    display: none !important;
+  }
+
+  body.cv-web {
+    background: white;
+  }
+
+  .cv-sheet {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .cv,
+  .two {
+    grid-template-columns: 1fr;
+  }
+}
